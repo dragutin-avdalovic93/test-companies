@@ -35,9 +35,9 @@ export const fetchCompaniesFailure = (error) => ({
 });
 
 //thunk action for fetching companies
-export const fetchCompanies = (search = '', pageIndex = 0, pageSize = 5) => {
+export const fetchCompanies = (search = '', pageIndex = 1, pageSize = 5) => {
     return async (dispatch, getState) => {
-        //dispatch(fetchCompaniesRequest());
+        dispatch(fetchCompaniesRequest());
 
         try {
             const tokenId = getState().auth.tokenId;
@@ -47,14 +47,10 @@ export const fetchCompanies = (search = '', pageIndex = 0, pageSize = 5) => {
                 },
             });
             if (response.data) {
-                let s = search;
-                let pI = pageIndex;
-                let pS = pageSize;
-                var getUrl = '';
-                if (search !== '' || pageIndex !== 0 || pageSize !== 5) {
-                    getUrl = 'http://54.80.209.252/companies?Search=' + s + '&PageIndex=' + pI + '&PageSize' + pS + '';
-                } else {
-                    getUrl = "http://54.80.209.252/companies";
+                let getUrl = 'http://54.80.209.252/companies';
+
+                if (search !== '' || pageIndex !== 1 || pageSize !== 5) {
+                    getUrl += `?Search=${search}&PageIndex=${pageIndex}&PageSize=${pageSize}`;
                 }
                 const companiesResponse = await axios.get(getUrl, {
                     headers: {

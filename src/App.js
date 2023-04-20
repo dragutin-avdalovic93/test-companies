@@ -11,6 +11,7 @@ import EditCompanyForm from './components/EditCompany';
 import {ShowMore} from './components/ShowMore';
 import CompaniesPage from './components/CompaniesDragAndDrop';
 import {GoogleLoginComponent} from "./components/GoogleLoginComponent";
+import {ShowMoreCollapse} from "./components/Collapse";
 
 function App() {
     const {tokenId} = useSelector((state) => state.auth);
@@ -44,6 +45,27 @@ function App() {
                         stTestTestTestTestTestTestTest"/>
                 }
             />
+            <Route
+                path="/collapse"
+                element={
+                    <ShowMoreCollapse
+                        text="TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes
+                        tTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe
+                        stTestTestTestTestTestTestTestTestTestTestT
+                        estTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestT
+                        estTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes
+                        tTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+                        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestT
+                        estTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe
+                        stTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes
+                        tTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+                        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe
+                        stTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes
+                        tTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe
+                        stTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe
+                        stTestTestTestTestTestTestTest" maxLength="100"/>
+                }
+            />
             <Route path="/dnd" element={<CompaniesPage/>}/>
             <Route path="*" element={<PageNotFound/>}/>
         </Routes>
@@ -51,15 +73,21 @@ function App() {
 
     const links = (
         <Toolbar>
-            <Button component={Link} to="/" color="inherit">
+            <Button component={Link} to="/" color="inherit" variant="outlined" style={{margin: '0 10px 0 0'}}>
                 {tokenId ? 'Companies' : 'Home'}
             </Button>
             {tokenId && (
                 <>
-                    <Button component={Link} to="/show-more" color="inherit">
+                    <Button component={Link} to="/show-more" color="inherit" variant="outlined"
+                            style={{margin: '0 10px 0 0'}}>
                         Show More
                     </Button>
-                    <Button component={Link} to="/dnd" color="inherit">
+                    <Button component={Link} to="/collapse" color="inherit" variant="outlined"
+                            style={{margin: '0 10px 0 0'}}>
+                        Collapse
+                    </Button>
+                    <Button component={Link} to="/dnd" color="inherit" variant="outlined"
+                            style={{margin: '0 10px 0 0'}}>
                         Drag and Drop
                     </Button>
                 </>

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCompanies } from "../features/companies/companiesReducer";
-import { makeStyles } from "@mui/styles";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchCompanies} from "../features/companies/companiesReducer";
+import {makeStyles} from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -9,27 +9,33 @@ import CardContent from "@mui/material/CardContent";
 const useStyles = makeStyles({
     root: {
         flexGrow: 1,
+        margin: "50px"
     },
     leftColumn: {
         padding: "1rem",
+        backgroundColor: "#f2f2f2",
     },
     rightColumn: {
         padding: "1rem",
         backgroundColor: "#f2f2f2",
         display: "flex",
         flexDirection: "column",
+        alignItems: "stretch", // set to stretch to make all cards the same width
     },
     card: {
         margin: "1rem 0",
         cursor: "grab",
-    },
-    target: {
-        minHeight: "100px",
-        border: "2px dashed #ccc",
+        backgroundColor: "white",
+        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
         borderRadius: "4px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        transition: "all 0.3s ease-in-out",
+        "&:hover": {
+            transform: "translateY(-4px)",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+        },
+    },
+    cardContent: {
+        padding: "1rem",
     },
 });
 
@@ -80,6 +86,15 @@ const CompaniesPage = () => {
                 left: sourceColumn === "left" ? sourceItems : companiesData.left,
                 right: sourceColumn === "right" ? targetItems : companiesData.right,
             });
+
+            // append the dropped card to the target element
+            const card = document.createElement("div");
+            card.className = classes.card;
+            card.draggable = true;
+            card.setAttribute("data-id", company.companyId);
+            card.addEventListener("dragstart", (event) => handleDragStart(event, company));
+            card.innerHTML = `<div>${company.companyName}</div>`;
+            event.target.appendChild(card);
         }
     };
 
@@ -103,9 +118,10 @@ const CompaniesPage = () => {
                         onDragOver={handleDragOver}
                         onDrop={(event) => handleDrop(event, "right")}
                         className={classes.card}
+                        style={{width: "100%", height: "100%"}}
                     >
-                        <CardContent>
-                            <h2>Target Column</h2>
+                        <CardContent style={{width: "100%", height: "100%"}}>
+                            <h2 style={{width: "100%", height: "100%"}}></h2>
                             {companiesData.right.map((company) => (
                                 <Card key={company.companyId} className={classes.card}>
                                     <CardContent>{company.companyName}</CardContent>

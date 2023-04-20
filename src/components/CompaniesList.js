@@ -14,6 +14,11 @@ import Button from "@mui/material/Button"
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import Dialog from '@mui/material/Dialog'
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 import store from "../app/store";
 
 
@@ -28,7 +33,7 @@ const useStyles = makeStyles({
     tableContainer: {
         marginTop: 20,
         marginBottom: 20,
-        maxHeight: 440,
+        maxHeight: '65vh',
         maxWidth: "80%",
         marginLeft: "auto",
         marginRight: "auto",
@@ -43,8 +48,15 @@ const CompaniesList = () => {
     const classes = useStyles();
 
     const [searchTerm, setSearchTerm] = useState('');
-    const [page, setPage] = useState(0);
+    const [page, setPage] = useState(1);
     const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [open, setOpen] = useState(false);
+    const [deleteId, setDeleteId] = useState(null);
+
+    const handleClose = () => {
+        setOpen(false);
+        setDeleteId(null);
+    };
 
     const dispatch = useDispatch();
     const companiesData = useSelector(state => state.companies);
@@ -54,24 +66,26 @@ const CompaniesList = () => {
 
     const handleSearchTermChange = (event) => {
         setSearchTerm(event.target.value);
-        dispatch(fetchCompanies(event.target.value, page, rowsPerPage));
+        setPage(0);
+        dispatch(fetchCompanies(event.target.value, 1, rowsPerPage));
     }
 
     const handleChangePage = (event, newPage) => {
+        console.log('n', newPage);
+        if (newPage < 0) {
+            newPage = 0;
+        }
         setPage(newPage);
-        dispatch(fetchCompanies(searchTerm, newPage, rowsPerPage));
-    }
-
-    const handleChange = (event, newPage) => {
-        setPage(newPage);
-        dispatch(fetchCompanies(searchTerm, newPage, rowsPerPage));
     }
 
 
     const handleRowsPerPageChange = (event) => {
-        setRowsPerPage(parseInt(event.target.value, 10));
-        setPage(0);
-        dispatch(fetchCompanies(searchTerm, 0, parseInt(event.target.value, 10)));
+        const newRowsPerPage = parseInt(event.target.value);
+        const newPageCount = Math.ceil(companiesData.itemCount / newRowsPerPage);
+        const newPage = Math.min(page, newPageCount);
+        setRowsPerPage(newRowsPerPage);
+        setPage(newPage);
+        dispatch(fetchCompanies(searchTerm, newPage, newRowsPerPage));
     }
 
     const handleEdit = (id) => {
@@ -79,16 +93,21 @@ const CompaniesList = () => {
     }
 
     const handleDelete = (id) => {
-        if (window.confirm("Are you sure")) {
-            dispatch(removeCompany(id, tokenId));
-        } else {
-            alert('Deleting canceled!');
-        }
+        setOpen(true);
+        setDeleteId(id);
+    }
+    const handleConfirm = () => {
+        dispatch(removeCompany(deleteId, tokenId)).then(() => {
+            dispatch(fetchCompanies('', 1, 5));
+            setPage(0)
+        });
+        setOpen(false);
     }
 
     useEffect(() => {
-        dispatch(fetchCompanies(searchTerm, page, rowsPerPage))
-    }, [dispatch, searchTerm, page, rowsPerPage]);
+        dispatch(fetchCompanies(searchTerm, page, rowsPerPage));
+        setPage(0);
+    }, []);
 
     return (
         <>
@@ -108,22 +127,38 @@ const CompaniesList = () => {
                     value={searchTerm}
                     onChange={handleSearchTermChange}
                 />
-                <Button size="normal" component={Link} to="/new" variant="contained" color="primary"
+                <Button size="small" component={Link} to="/new" variant="contained" color="primary"
                         style={{margin: 20}}>
                     Create/New
                 </Button>
             </div>
             <TableContainer className={classes.tableContainer} component={Paper}>
+                <Dialog open={open} onClose={handleClose}>
+                    <DialogTitle>{"Delete Company"}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            Are you sure you want to delete this company?
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Cancel
+                        </Button>
+                        <Button onClick={handleConfirm} color="warning">
+                            Delete
+                        </Button>
+                    </DialogActions>
+                </Dialog>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>
-                            <TableCell style={{textAlign: 'center'}}>
+                            <TableCell style={{textAlign: 'center', backgroundColor: "grey", color: "whitesmoke"}}>
                                 Company Name
                             </TableCell>
-                            <TableCell style={{textAlign: 'center'}}>
+                            <TableCell style={{textAlign: 'center', backgroundColor: "grey", color: "whitesmoke"}}>
                                 Edit
                             </TableCell>
-                            <TableCell style={{textAlign: 'center'}}>
+                            <TableCell style={{textAlign: 'center', backgroundColor: "grey", color: "whitesmoke"}}>
                                 Delete
                             </TableCell>
                         </TableRow>
@@ -160,7 +195,6 @@ const CompaniesList = () => {
                 count={companiesData.itemCount}
                 rowsPerPage={rowsPerPage}
                 page={page}
-                onChange={handleChange}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleRowsPerPageChange}
             />
