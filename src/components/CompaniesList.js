@@ -60,7 +60,6 @@ const CompaniesList = () => {
 
     const dispatch = useDispatch();
     const companiesData = useSelector(state => state.companies);
-    console.log(companiesData);
 
     const tokenId = useSelector((state) => state.auth.tokenId);
 
@@ -71,7 +70,6 @@ const CompaniesList = () => {
     }
 
     const handleChangePage = (event, newPage) => {
-        console.log('n', newPage);
         if (newPage < 0) {
             newPage = 0;
         }
@@ -127,8 +125,8 @@ const CompaniesList = () => {
                     value={searchTerm}
                     onChange={handleSearchTermChange}
                 />
-                <Button size="small" component={Link} to="/new" variant="contained" color="primary"
-                        style={{margin: 20}}>
+                <Button size="large" component={Link} to="/new" variant="contained" color="primary"
+                        style={{margin: "10px 10px 0 10px"}}>
                     Create/New
                 </Button>
             </div>

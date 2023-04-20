@@ -41,13 +41,13 @@ export const fetchCompanies = (search = '', pageIndex = 1, pageSize = 5) => {
 
         try {
             const tokenId = getState().auth.tokenId;
-            const response = await axios.get('http://54.80.209.252/me', {
+            const response = await axios.get(process.env.REACT_APP_PROJECT_API_URL + '/me', {
                 headers: {
                     Authorization: `Bearer ${tokenId}`,
                 },
             });
             if (response.data) {
-                let getUrl = 'http://54.80.209.252/companies';
+                let getUrl = process.env.REACT_APP_PROJECT_API_URL + '/companies';
 
                 if (search !== '' || pageIndex !== 1 || pageSize !== 5) {
                     getUrl += `?Search=${search}&PageIndex=${pageIndex}&PageSize=${pageSize}`;

@@ -18,13 +18,12 @@ export const setUserLoggedOut = () => ({
 export const authenticateUser = (tokenId, profileObj) => {
     return async (dispatch, getState) => {
         try {
-            const response = await axios.get('http://54.80.209.252/me', {
+            const response = await axios.get(process.env.REACT_APP_PROJECT_API_URL + '/me', {
                 headers: {
                     Authorization: `Bearer ${tokenId}`,
                 },
             });
             if (response.data) {
-                console.log('ress', response.data);
                 dispatch(setUserLoggedIn(tokenId, profileObj));
             }
         } catch (e) {

@@ -15,7 +15,6 @@ import {ShowMoreCollapse} from "./components/Collapse";
 
 function App() {
     const {tokenId} = useSelector((state) => state.auth);
-    console.log(tokenId);
 
     const routes = (
         <Routes>
@@ -49,9 +48,9 @@ function App() {
                 path="/collapse"
                 element={
                     <ShowMoreCollapse
-                        text="TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes
-                        tTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe
-                        stTestTestTestTestTestTestTestTestTestTestT
+                        text="TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestT
+                        estTestTestTestTestTestTestTestTestTestTestT
+                        estTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestT
                         estTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestT
                         estTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes
                         tTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
@@ -78,16 +77,13 @@ function App() {
             </Button>
             {tokenId && (
                 <>
-                    <Button component={Link} to="/show-more" color="inherit" variant="outlined"
-                            style={{margin: '0 10px 0 0'}}>
+                    <Button component={Link} to="/show-more" color="inherit" variant="outlined" style={{margin: '0 10px 0 0'}}>
                         Show More
                     </Button>
-                    <Button component={Link} to="/collapse" color="inherit" variant="outlined"
-                            style={{margin: '0 10px 0 0'}}>
+                    <Button component={Link} to="/collapse" color="inherit" variant="outlined" style={{margin: '0 10px 0 0'}}>
                         Collapse
                     </Button>
-                    <Button component={Link} to="/dnd" color="inherit" variant="outlined"
-                            style={{margin: '0 10px 0 0'}}>
+                    <Button component={Link} to="/dnd" color="inherit" variant="outlined" style={{margin: '0 10px 0 0'}}>
                         Drag and Drop
                     </Button>
                 </>

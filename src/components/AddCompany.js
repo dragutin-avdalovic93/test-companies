@@ -48,7 +48,7 @@ const AddCompanyForm = () => {
         onSubmit: async (values) => {
             try {
                 const tokenId = store.getState().auth.tokenId;
-                const responseMe = await axios.get('http://54.80.209.252/me', {
+                const responseMe = await axios.get(process.env.REACT_APP_PROJECT_API_URL + '/me', {
                     headers: {
                         Authorization: `Bearer ${tokenId}`,
                     },

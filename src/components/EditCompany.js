@@ -47,12 +47,10 @@ function EditCompanyForm() {
 
 
     const {companyId} = useParams();
-    console.log('id', companyId);
     const tokenId = useSelector((state) => state.auth.tokenId);
-    console.log('tid', tokenId);
 
     useEffect(() => {
-        fetch(`http://54.80.209.252/companies/${companyId}`, {
+        fetch(process.env.REACT_APP_PROJECT_API_URL + `/companies/${companyId}`, {
             method: 'get',
             headers: new Headers({
                 'Authorization': 'Bearer ' + tokenId,
@@ -67,9 +65,6 @@ function EditCompanyForm() {
         });
     }, []);
 
-    console.log('editName', editName);
-    console.log('editId', editId);
-    console.log('editNameText', editNameText);
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -80,17 +75,13 @@ function EditCompanyForm() {
         },
         validationSchema: validationSchema,
         onSubmit: async (values) => {
-            console.log(values);
             const tokenId = store.getState().auth.tokenId;
-            const responseMe = await axios.get('http://54.80.209.252/me', {
+            const responseMe = await axios.get(process.env.REACT_APP_PROJECT_API_URL + '/me', {
                 headers: {
                     Authorization: `Bearer ${tokenId}`,
                 },
             });
             if (responseMe.data) {
-                console.log('cid', companyId);
-                console.log('values', values);
-                console.log('token', tokenId);
                 dispatch(updateCompany(companyId, values, tokenId));
                 formik.resetForm();
                 setAlertOpen(true);

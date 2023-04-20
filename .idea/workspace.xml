@@ -11,12 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7987989-0664-4248-87e0-5d408d2f4738" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Collapse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddCompany.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CompaniesDragAndDrop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompaniesDragAndDrop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CompaniesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompaniesList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditCompany.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShowMore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowMore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/companies/companiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/companies/companiesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/company/companyReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/company/companyReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/user/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/userReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,8 +96,16 @@
       <workItem from="1681811290306" duration="19547000" />
       <workItem from="1681831759465" duration="5715000" />
       <workItem from="1681894409726" duration="690000" />
-      <workItem from="1681913946535" duration="19846000" />
+      <workItem from="1681913946535" duration="25770000" />
     </task>
+    <task id="LOCAL-00001" summary="Bug fixes for table data, fixes for adding,deleting and changing of company data. New version of drag and drop implemented">
+      <created>1681995962473</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681995962473</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,36 +125,38 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Bug fixes for table data, fixes for adding,deleting and changing of company data. New version of drag and drop implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes for table data, fixes for adding,deleting and changing of company data. New version of drag and drop implemented" />
   </component>
   <component name="WindowStateProjectService">
     <state x="638" y="301" key="#ESLint" timestamp="1681722525822">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="638" y="301" key="#ESLint/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681722525822" />
-    <state x="502" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1681741165159">
+    <state x="502" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1682009388310">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="502" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681741165159" />
+    <state x="502" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009388310" />
     <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1681895103315">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681895103315" />
-    <state width="1515" height="195" key="GridCell.Tab.0.bottom" timestamp="1681995560407">
+    <state width="1515" height="180" key="GridCell.Tab.0.bottom" timestamp="1682009875810">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="195" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681995560407" />
-    <state width="1515" height="195" key="GridCell.Tab.0.center" timestamp="1681995560407">
+    <state width="1515" height="180" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009875810" />
+    <state width="1515" height="180" key="GridCell.Tab.0.center" timestamp="1682009875810">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="195" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681995560407" />
-    <state width="1515" height="195" key="GridCell.Tab.0.left" timestamp="1681995560407">
+    <state width="1515" height="180" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009875810" />
+    <state width="1515" height="180" key="GridCell.Tab.0.left" timestamp="1682009875810">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="195" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681995560407" />
-    <state width="1515" height="195" key="GridCell.Tab.0.right" timestamp="1681995560407">
+    <state width="1515" height="180" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009875810" />
+    <state width="1515" height="180" key="GridCell.Tab.0.right" timestamp="1682009875810">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="195" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681995560407" />
+    <state width="1515" height="180" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009875810" />
     <state x="93" y="93" width="1350" height="630" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1681833312839">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -150,10 +165,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="586" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681747870490" />
-    <state x="478" y="7" width="579" height="801" key="find.popup" timestamp="1681914473982">
+    <state x="478" y="7" width="678" height="801" key="find.popup" timestamp="1682009874020">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="478" y="7" width="579" height="801" key="find.popup/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681914473982" />
+    <state x="478" y="7" width="678" height="801" key="find.popup/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009874020" />
     <state x="425" y="185" key="run.anything.popup" timestamp="1681725681495">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

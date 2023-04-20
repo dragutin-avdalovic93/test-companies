@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {Typography, Button} from "@mui/material";
 
 export function ShowMore({text, maxLenght = 100}) {

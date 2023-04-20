@@ -9,11 +9,16 @@ import CardContent from "@mui/material/CardContent";
 const useStyles = makeStyles({
     root: {
         flexGrow: 1,
-        margin: "50px"
+        margin: "50px",
     },
     leftColumn: {
         padding: "1rem",
         backgroundColor: "#f2f2f2",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch", // set to stretch to make all cards the same width
+        borderRadius: "4px",
+
     },
     rightColumn: {
         padding: "1rem",
@@ -21,22 +26,30 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         alignItems: "stretch", // set to stretch to make all cards the same width
+        borderRadius: "4px",
     },
     card: {
-        margin: "1rem 0",
+        margin: "1rem 0.5rem",
         cursor: "grab",
         backgroundColor: "white",
         boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
         borderRadius: "4px",
         transition: "all 0.3s ease-in-out",
+        opacity: 1,
         "&:hover": {
             transform: "translateY(-4px)",
             boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
         },
     },
-    cardContent: {
+    cardHolder: {
         padding: "1rem",
+        backgroundColor: "#5cb4e2",
+        borderRadius: "4px",
+        opacity: 1,
     },
+    cardDragging: {
+        opacity: 1,
+    }
 });
 
 const CompaniesPage = () => {
@@ -56,6 +69,7 @@ const CompaniesPage = () => {
 
     const handleDragStart = (event, company) => {
         event.dataTransfer.setData("text/plain", company.companyId);
+        event.currentTarget.classList.add("cardDragging");
     };
 
     const handleDragOver = (event) => {
@@ -65,6 +79,7 @@ const CompaniesPage = () => {
     const handleDrop = (event, target) => {
         const companyId = event.dataTransfer.getData("text");
         const sourceColumn = target === "right" ? "left" : "right";
+        const targetColumn = target === "right" ? "right" : "left";
 
         // find the company in the source column
         const companyIndex = companiesData[sourceColumn].findIndex(
@@ -83,18 +98,11 @@ const CompaniesPage = () => {
 
             // update the local state
             setCompaniesData({
-                left: sourceColumn === "left" ? sourceItems : companiesData.left,
-                right: sourceColumn === "right" ? targetItems : companiesData.right,
+                left: targetColumn === "left" ? targetItems : sourceItems,
+                right: targetColumn === "right" ? targetItems : sourceItems,
             });
 
-            // append the dropped card to the target element
-            const card = document.createElement("div");
-            card.className = classes.card;
-            card.draggable = true;
-            card.setAttribute("data-id", company.companyId);
-            card.addEventListener("dragstart", (event) => handleDragStart(event, company));
-            card.innerHTML = `<div>${company.companyName}</div>`;
-            event.target.appendChild(card);
+
         }
     };
 
@@ -102,37 +110,45 @@ const CompaniesPage = () => {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12} md={6} className={classes.leftColumn}>
-                    {companiesData.left.map((company) => (
-                        <Card
-                            key={company.companyId}
-                            className={classes.card}
-                            draggable
-                            onDragStart={(event) => handleDragStart(event, company)}
-                        >
-                            <CardContent>{company.companyName}</CardContent>
-                        </Card>
-                    ))}
+                    <div onDragOver={handleDragOver}
+                         onDrop={(event) => handleDrop(event, "left")}
+                         className={classes.cardHolder}
+                         style={{width: "100%", height: "100%"}}>
+                        {companiesData.left.map((company) => (
+                            <Card
+                                key={company.companyId}
+                                className={classes.card}
+                                draggable
+                                onDragStart={(event) => handleDragStart(event, company)}
+                            >
+                                <CardContent onDrop={() => {
+                                    return false;
+                                }}>
+                                    {company.companyName}
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
                 </Grid>
                 <Grid item xs={12} md={6} className={classes.rightColumn}>
                     <div
                         onDragOver={handleDragOver}
                         onDrop={(event) => handleDrop(event, "right")}
-                        className={classes.card}
+                        className={classes.cardHolder}
                         style={{width: "100%", height: "100%"}}
                     >
-                        <CardContent style={{width: "100%", height: "100%"}}>
-                            <h2 style={{width: "100%", height: "100%"}}></h2>
-                            {companiesData.right.map((company) => (
-                                <Card key={company.companyId} className={classes.card}>
-                                    <CardContent>{company.companyName}</CardContent>
-                                </Card>
-                            ))}
-                        </CardContent>
+                        {companiesData.right.map((company) => (
+                            <Card key={company.companyId} className={classes.card} draggable
+                                  onDragStart={(event) => handleDragStart(event, company)}>
+                                <CardContent onDrop={() => {
+                                    return false;
+                                }}>{company.companyName}</CardContent>
+                            </Card>
+                        ))}
                     </div>
                 </Grid>
             </Grid>
         </div>
     );
-
 }
 export default CompaniesPage;

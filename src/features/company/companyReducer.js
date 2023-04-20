@@ -43,12 +43,12 @@ export const deleteCompany = (companyId) => {
 };
 
 export const fetchCompany = (companyId) => async (dispatch, getState) => {
-    const response = await axios.get(`http://54.80.209.252/companies/${companyId}`);
+    const response = await axios.get(process.env.REACT_APP_PROJECT_API_URL + `/companies/${companyId}`);
     dispatch(getCompany(response.data));
 };
 
 export const createCompany = (company, tokenId) => async (dispatch, getState) => {
-    const response = await axios.post('http://54.80.209.252/companies', company, {
+    const response = await axios.post(process.env.REACT_APP_PROJECT_API_URL + '/companies', company, {
         headers: {
             Authorization: `Bearer ${tokenId}`,
         },
@@ -57,7 +57,7 @@ export const createCompany = (company, tokenId) => async (dispatch, getState) =>
 };
 
 export const updateCompany = (companyId, company, tokenId) => async (dispatch, getState) => {
-    await axios.put(`http://54.80.209.252/companies/${companyId}`, company, {
+    await axios.put(process.env.REACT_APP_PROJECT_API_URL + `/companies/${companyId}`, company, {
         headers: {
             Authorization: `Bearer ${tokenId}`,
         },
@@ -66,7 +66,7 @@ export const updateCompany = (companyId, company, tokenId) => async (dispatch, g
 };
 
 export const removeCompany = (companyId,tokenId) => async (dispatch, getState) => {
-    await axios.delete(`http://54.80.209.252/companies/${companyId}`, {
+    await axios.delete(process.env.REACT_APP_PROJECT_API_URL + `/companies/${companyId}`, {
         headers: {
             Authorization: `Bearer ${tokenId}`,
         },
