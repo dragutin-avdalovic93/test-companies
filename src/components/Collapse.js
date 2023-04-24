@@ -19,14 +19,17 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
+        margin: "100px",
+        textAlign: "center"
     },
     text: {
         margin: "20px",
         color: "black",
-        textAlign: "justify",
+        textAlign: "center",
     },
     button: {
         margin: "20px",
+        marginTop: "20px !important"
     },
 });
 

@@ -12,7 +12,7 @@ export function ShowMore({text, maxLenght = 100}) {
     const truncatedText = showMore ? text : `${text.slice(0, maxLenght)}...`;
     return (
         <div style={{display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column"}}>
-            <Typography variant="body1" style={{margin: "20px"}}>
+            <Typography variant="body1" style={{margin: "20px", textAlign: "center"}}>
                 {truncatedText}
             </Typography>
             {text.length > maxLenght && (

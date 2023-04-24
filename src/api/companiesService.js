@@ -7,7 +7,7 @@ import {
 } from "../features/companies/companiesReducer";
 
 //thunk action for fetching companies
-export const fetchCompanies = (search = '', pageIndex = 1, pageSize = 5) => {
+export const fetchCompanies = (search = '', pageIndex = 0, pageSize = 5) => {
     return async (dispatch, getState) => {
         dispatch(fetchCompaniesRequest());
 
@@ -21,7 +21,7 @@ export const fetchCompanies = (search = '', pageIndex = 1, pageSize = 5) => {
             if (response.data) {
                 let getUrl = process.env.REACT_APP_PROJECT_API_URL + '/companies';
 
-                if (search !== '' || pageIndex !== 1 || pageSize !== 5) {
+                if (search !== '' || pageIndex !== 0 || pageSize !== 5) {
                     getUrl += `?Search=${search}&PageIndex=${pageIndex}&PageSize=${pageSize}`;
                 }
                 const companiesResponse = await axios.get(getUrl, {

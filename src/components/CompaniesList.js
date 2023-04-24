@@ -19,7 +19,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import store from "../app/store";
 
 
 import {fetchCompanies} from "../api/companiesService";
@@ -69,10 +68,11 @@ const CompaniesList = () => {
     }
 
     const handleChangePage = (event, newPage) => {
-        if (newPage < 0) {
+        if (newPage <= 0) {
             newPage = 0;
         }
         setPage(newPage);
+        dispatch(fetchCompanies(searchTerm, newPage + 1, rowsPerPage));
     }
 
 
@@ -161,9 +161,7 @@ const CompaniesList = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {companiesData.items.slice(
-                            page * rowsPerPage, page * rowsPerPage + rowsPerPage
-                        ).map((company) => (
+                        {companiesData.items.map((company) => (
                             <TableRow key={company.companyId} style={{textAlign: 'center'}}>
                                 <TableCell style={{textAlign: 'center'}}>{company.companyName}</TableCell>
                                 <TableCell style={{textAlign: 'center'}}>
