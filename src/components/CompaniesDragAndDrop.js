@@ -5,6 +5,7 @@ import {makeStyles} from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import store from "../app/store";
 
 const useStyles = makeStyles({
     root: {
@@ -53,19 +54,29 @@ const useStyles = makeStyles({
 });
 
 const CompaniesPage = () => {
+
     const classes = useStyles();
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(fetchCompanies("", 0, 5));
-    }, [dispatch]);
-
-    const companiesServer = useSelector((state) => state.companies);
-
+    const [companiesServer, setCompaniesServer] = useState([]);
     const [companiesData, setCompaniesData] = useState({
-        left: companiesServer.items,
+        left: [],
         right: [],
     });
+
+    const companies = useSelector((state) => state.companies);
+
+
+    useEffect(() => {
+        dispatch(fetchCompanies("", "", "")).then(() => {
+            setCompaniesServer(store.getState().companies);
+            console.log('test', companies);
+            console.log('test 2', companiesServer);
+            setCompaniesData({
+                left: companies.items,
+                right: [],
+            });
+        });
+    }, [dispatch]);
 
     const handleDragStart = (event, company) => {
         event.dataTransfer.setData("text/plain", company.companyId);

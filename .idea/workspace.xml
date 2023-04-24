@@ -12,10 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b7987989-0664-4248-87e0-5d408d2f4738" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/companiesService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/companiesService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Collapse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Collapse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CompaniesDragAndDrop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompaniesDragAndDrop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CompaniesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompaniesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShowMore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowMore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +44,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -91,7 +90,7 @@
       <workItem from="1681831759465" duration="5715000" />
       <workItem from="1681894409726" duration="690000" />
       <workItem from="1681913946535" duration="26383000" />
-      <workItem from="1682322415795" duration="8574000" />
+      <workItem from="1682322415795" duration="14959000" />
     </task>
     <task id="LOCAL-00001" summary="Bug fixes for table data, fixes for adding,deleting and changing of company data. New version of drag and drop implemented">
       <created>1681995962473</created>
@@ -114,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682329130184</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="UI fixed, pagination implemented, final UI fixes of application.">
+      <created>1682331338488</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682331338488</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,26 +159,26 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681895103315" />
-    <state width="1515" height="180" key="GridCell.Tab.0.bottom" timestamp="1682331286994">
+    <state width="1515" height="180" key="GridCell.Tab.0.bottom" timestamp="1682337569424">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="180" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682331286994" />
-    <state width="1515" height="180" key="GridCell.Tab.0.center" timestamp="1682331286994">
+    <state width="1515" height="180" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682337569424" />
+    <state width="1515" height="180" key="GridCell.Tab.0.center" timestamp="1682337569424">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="180" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682331286994" />
-    <state width="1515" height="180" key="GridCell.Tab.0.left" timestamp="1682331286994">
+    <state width="1515" height="180" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682337569424" />
+    <state width="1515" height="180" key="GridCell.Tab.0.left" timestamp="1682337569424">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="180" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682331286994" />
-    <state width="1515" height="180" key="GridCell.Tab.0.right" timestamp="1682331286994">
+    <state width="1515" height="180" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682337569424" />
+    <state width="1515" height="180" key="GridCell.Tab.0.right" timestamp="1682337569424">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="180" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682331286994" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1682010508601">
+    <state width="1515" height="180" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682337569424" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1682331342702">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682010508601" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682331342702" />
     <state x="93" y="93" width="1350" height="630" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1681833312839">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -185,10 +191,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="478" y="7" width="678" height="801" key="find.popup/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682325565858" />
-    <state x="425" y="185" key="run.anything.popup" timestamp="1681725681495">
+    <state x="425" y="185" key="run.anything.popup" timestamp="1682341095097">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="425" y="185" key="run.anything.popup/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681725681495" />
+    <state x="425" y="185" key="run.anything.popup/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682341095097" />
     <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1681813694627">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

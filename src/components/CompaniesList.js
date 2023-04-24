@@ -71,7 +71,7 @@ const CompaniesList = () => {
         if (newPage <= 0) {
             newPage = 0;
         }
-        setPage(newPage);
+        setPage(page => newPage);
         dispatch(fetchCompanies(searchTerm, newPage + 1, rowsPerPage));
     }
 
@@ -79,10 +79,10 @@ const CompaniesList = () => {
     const handleRowsPerPageChange = (event) => {
         const newRowsPerPage = parseInt(event.target.value);
         //const newPageCount = Math.floor(companiesData.itemCount / newRowsPerPage);
-        const newPage = 0;
-        setRowsPerPage(newRowsPerPage);
-        setPage(newPage);
-        dispatch(fetchCompanies(searchTerm, newPage, newRowsPerPage));
+        const newPage = 1;
+        setRowsPerPage(rowsPerPage => newRowsPerPage);
+        setPage(page => 0);
+        dispatch(fetchCompanies(searchTerm, 1, newRowsPerPage));
     }
 
     const handleEdit = (id) => {
@@ -95,7 +95,7 @@ const CompaniesList = () => {
     }
     const handleConfirm = () => {
         dispatch(removeCompany(deleteId, tokenId)).then(() => {
-            dispatch(fetchCompanies('', 1, 5));
+            dispatch(fetchCompanies('', 1, rowsPerPage));
             setPage(0)
         });
         setOpen(false);
