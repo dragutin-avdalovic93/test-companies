@@ -1,7 +1,6 @@
 import React from 'react';
-import {Button, Typography} from '@mui/material';
-import {Routes, Link, Route, Navigate} from 'react-router-dom';
-import {HomePage} from './components/HomePage';
+import {Button} from '@mui/material';
+import {Routes, Link, Route} from 'react-router-dom';
 import CompaniesList from './components/CompaniesList';
 import {PageNotFound} from './components/NotFound';
 import {AppBar, Toolbar} from '@mui/material';
@@ -14,7 +13,7 @@ import {GoogleLoginComponent} from "./components/GoogleLoginComponent";
 import {ShowMoreCollapse} from "./components/Collapse";
 
 function App() {
-    const {tokenId} = useSelector((state) => state.auth);
+    const {tokenId} = useSelector((state) => state.user);
 
     const routes = (
         <Routes>
@@ -77,13 +76,16 @@ function App() {
             </Button>
             {tokenId && (
                 <>
-                    <Button component={Link} to="/show-more" color="inherit" variant="outlined" style={{margin: '0 10px 0 0'}}>
+                    <Button component={Link} to="/show-more" color="inherit" variant="outlined"
+                            style={{margin: '0 10px 0 0'}}>
                         Show More
                     </Button>
-                    <Button component={Link} to="/collapse" color="inherit" variant="outlined" style={{margin: '0 10px 0 0'}}>
+                    <Button component={Link} to="/collapse" color="inherit" variant="outlined"
+                            style={{margin: '0 10px 0 0'}}>
                         Collapse
                     </Button>
-                    <Button component={Link} to="/dnd" color="inherit" variant="outlined" style={{margin: '0 10px 0 0'}}>
+                    <Button component={Link} to="/dnd" color="inherit" variant="outlined"
+                            style={{margin: '0 10px 0 0'}}>
                         Drag and Drop
                     </Button>
                 </>

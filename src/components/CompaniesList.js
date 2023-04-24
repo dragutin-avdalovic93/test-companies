@@ -22,8 +22,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import store from "../app/store";
 
 
-import {fetchCompanies} from "../features/companies/companiesReducer";
-import {removeCompany} from '../features/company/companyReducer';
+import {fetchCompanies} from "../api/companiesService";
+import {removeCompany} from '../api/companyService';
 import {Link, useNavigate} from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -60,8 +60,7 @@ const CompaniesList = () => {
 
     const dispatch = useDispatch();
     const companiesData = useSelector(state => state.companies);
-
-    const tokenId = useSelector((state) => state.auth.tokenId);
+    const tokenId = useSelector((state) => state.user.tokenId);
 
     const handleSearchTermChange = (event) => {
         setSearchTerm(event.target.value);
@@ -79,8 +78,8 @@ const CompaniesList = () => {
 
     const handleRowsPerPageChange = (event) => {
         const newRowsPerPage = parseInt(event.target.value);
-        const newPageCount = Math.ceil(companiesData.itemCount / newRowsPerPage);
-        const newPage = Math.min(page, newPageCount);
+        //const newPageCount = Math.floor(companiesData.itemCount / newRowsPerPage);
+        const newPage = 0;
         setRowsPerPage(newRowsPerPage);
         setPage(newPage);
         dispatch(fetchCompanies(searchTerm, newPage, newRowsPerPage));
@@ -139,10 +138,10 @@ const CompaniesList = () => {
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleClose} color="primary">
+                        <Button onClick={handleClose} color="primary" variant={"outlined"}>
                             Cancel
                         </Button>
-                        <Button onClick={handleConfirm} color="warning">
+                        <Button onClick={handleConfirm} color="warning" variant={"outlined"}>
                             Delete
                         </Button>
                     </DialogActions>
@@ -190,7 +189,7 @@ const CompaniesList = () => {
                 }}
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
-                count={companiesData.itemCount}
+                count={!companiesData.itemCount || companiesData.itemCount <= 0 ? 0 : companiesData.itemCount}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

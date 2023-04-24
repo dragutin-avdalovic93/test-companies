@@ -1,8 +1,3 @@
-import store from '../../app/store';
-import {useSelector} from "react-redux";
-import axios from "axios";
-
-
 //constants - action types
 const FETCH_COMPANIES_REQUEST = 'FETCH_COMPANIES_REQUEST';
 const FETCH_COMPANIES_SUCCESS = 'FETCH_COMPANIES_SUCCESS';
@@ -34,38 +29,6 @@ export const fetchCompaniesFailure = (error) => ({
     payload: error
 });
 
-//thunk action for fetching companies
-export const fetchCompanies = (search = '', pageIndex = 1, pageSize = 5) => {
-    return async (dispatch, getState) => {
-        dispatch(fetchCompaniesRequest());
-
-        try {
-            const tokenId = getState().auth.tokenId;
-            const response = await axios.get(process.env.REACT_APP_PROJECT_API_URL + '/me', {
-                headers: {
-                    Authorization: `Bearer ${tokenId}`,
-                },
-            });
-            if (response.data) {
-                let getUrl = process.env.REACT_APP_PROJECT_API_URL + '/companies';
-
-                if (search !== '' || pageIndex !== 1 || pageSize !== 5) {
-                    getUrl += `?Search=${search}&PageIndex=${pageIndex}&PageSize=${pageSize}`;
-                }
-                const companiesResponse = await axios.get(getUrl, {
-                    headers: {
-                        Authorization: `Bearer ${tokenId}`,
-                    },
-                });
-                if (companiesResponse.data) {
-                    dispatch(fetchCompaniesSuccess(companiesResponse.data));
-                }
-            }
-        } catch (err) {
-            dispatch(fetchCompaniesFailure(err.message));
-        }
-    }
-};
 
 //companies reducer
 const companiesReducer = (state = initialState, action) => {

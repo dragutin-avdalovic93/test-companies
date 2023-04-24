@@ -1,16 +1,16 @@
-import axios from "axios";
-import {useSelector} from "react-redux";
-
-const initialState = {
-    companyId: '',
-    companyName: ''
-};
-
+//constants
 const ADD_COMPANY = 'ADD_COMPANY';
 const EDIT_COMPANY = 'EDIT_COMPANY';
 const GET_COMPANY = 'GET_COMPANY';
 const DELETE_COMPANY = 'DELETE_COMPANY';
 
+//initial state
+const initialState = {
+    companyId: '',
+    companyName: ''
+};
+
+//action creators
 export const addCompany = (company) => {
     return {
         type: ADD_COMPANY,
@@ -42,38 +42,7 @@ export const deleteCompany = (companyId) => {
     };
 };
 
-export const fetchCompany = (companyId) => async (dispatch, getState) => {
-    const response = await axios.get(process.env.REACT_APP_PROJECT_API_URL + `/companies/${companyId}`);
-    dispatch(getCompany(response.data));
-};
-
-export const createCompany = (company, tokenId) => async (dispatch, getState) => {
-    const response = await axios.post(process.env.REACT_APP_PROJECT_API_URL + '/companies', company, {
-        headers: {
-            Authorization: `Bearer ${tokenId}`,
-        },
-    });
-    dispatch(addCompany(response.data));
-};
-
-export const updateCompany = (companyId, company, tokenId) => async (dispatch, getState) => {
-    await axios.put(process.env.REACT_APP_PROJECT_API_URL + `/companies/${companyId}`, company, {
-        headers: {
-            Authorization: `Bearer ${tokenId}`,
-        },
-    });
-    dispatch(editCompany(companyId, company));
-};
-
-export const removeCompany = (companyId,tokenId) => async (dispatch, getState) => {
-    await axios.delete(process.env.REACT_APP_PROJECT_API_URL + `/companies/${companyId}`, {
-        headers: {
-            Authorization: `Bearer ${tokenId}`,
-        },
-    });
-    dispatch(deleteCompany(companyId));
-};
-
+//reducer function
 const companyReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_COMPANY:

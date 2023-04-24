@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchCompanies} from "../features/companies/companiesReducer";
+import fetchCompanies from "../api/companiesService";
 import {makeStyles} from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";

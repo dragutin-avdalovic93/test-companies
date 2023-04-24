@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import {makeStyles} from "@mui/styles";
 import {useFormik} from "formik";
-import {updateCompany} from "../features/company/companyReducer";
+import {updateCompany} from "../api/companyService";
 import Typography from "@mui/material/Typography";
 import {useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux'
@@ -35,7 +35,6 @@ const validationSchema = yup.object({
 function EditCompanyForm() {
 
     const [editName, setEditName] = useState('');
-    const [editId, setEditId] = useState('');
 
     const [alertOpen, setAlertOpen] = useState(false);
     const navigate = useNavigate();
@@ -47,7 +46,7 @@ function EditCompanyForm() {
 
 
     const {companyId} = useParams();
-    const tokenId = useSelector((state) => state.auth.tokenId);
+    const tokenId = useSelector((state) => state.user.tokenId);
 
     useEffect(() => {
         fetch(process.env.REACT_APP_PROJECT_API_URL + `/companies/${companyId}`, {
@@ -60,7 +59,6 @@ function EditCompanyForm() {
             response => response.json()
         ).then(data => {
             setEditName(data.companyName);
-            setEditId(data.companyId);
             editNameText = data.companyName;
         });
     }, []);
@@ -75,7 +73,7 @@ function EditCompanyForm() {
         },
         validationSchema: validationSchema,
         onSubmit: async (values) => {
-            const tokenId = store.getState().auth.tokenId;
+            const tokenId = store.getState().user.tokenId;
             const responseMe = await axios.get(process.env.REACT_APP_PROJECT_API_URL + '/me', {
                 headers: {
                     Authorization: `Bearer ${tokenId}`,

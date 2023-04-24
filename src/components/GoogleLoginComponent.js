@@ -1,7 +1,7 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {GoogleLogin} from "react-google-login";
-import {authenticateUser} from "../features/user/userReducer";
+import authenticateUser from "../api/userService";
 import Typography from "@mui/material/Typography";
 
 export function GoogleLoginComponent() {

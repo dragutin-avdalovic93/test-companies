@@ -1,5 +1,3 @@
-import axios from "axios";
-
 //action types
 const SET_USER_LOGGED_IN = "LOGIN";
 const SET_USER_LOGGED_OUT = "LOGOUT";
@@ -14,33 +12,14 @@ export const setUserLoggedOut = () => ({
     type: SET_USER_LOGGED_OUT
 });
 
-//thunk action
-export const authenticateUser = (tokenId, profileObj) => {
-    return async (dispatch, getState) => {
-        try {
-            const response = await axios.get(process.env.REACT_APP_PROJECT_API_URL + '/me', {
-                headers: {
-                    Authorization: `Bearer ${tokenId}`,
-                },
-            });
-            if (response.data) {
-                dispatch(setUserLoggedIn(tokenId, profileObj));
-            }
-        } catch (e) {
-            console.log(e);
-            dispatch(setUserLoggedOut());
-        }
-    };
-};
-
-
+//initial state
 const initialState = {
     tokenId: null,
     profileObj: null,
 };
 
 //reducer function
-const authReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_LOGGED_IN:
             return {
@@ -54,4 +33,4 @@ const authReducer = (state = initialState, action) => {
     }
 };
 
-export default authReducer;
+export default userReducer;

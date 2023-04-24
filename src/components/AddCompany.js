@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import {makeStyles} from "@mui/styles";
 import {useFormik} from "formik";
-import {createCompany} from "../features/company/companyReducer";
+import {createCompany} from "../api/companyService";
 import Typography from "@mui/material/Typography";
 import store from "../app/store";
 import {Alert} from "@mui/material";
@@ -47,7 +47,7 @@ const AddCompanyForm = () => {
         validationSchema: validationSchema,
         onSubmit: async (values) => {
             try {
-                const tokenId = store.getState().auth.tokenId;
+                const tokenId = store.getState().user.tokenId;
                 const responseMe = await axios.get(process.env.REACT_APP_PROJECT_API_URL + '/me', {
                     headers: {
                         Authorization: `Bearer ${tokenId}`,

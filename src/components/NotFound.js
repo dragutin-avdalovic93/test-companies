@@ -1,5 +1,5 @@
 export function PageNotFound() {
     return (
-        <p>Page not found</p>
+        <h5 style={{textAlign: "center"}}>Page not found</h5>
     );
 }

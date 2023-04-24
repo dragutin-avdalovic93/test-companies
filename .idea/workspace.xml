@@ -11,14 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7987989-0664-4248-87e0-5d408d2f4738" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/companiesService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/companyService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/userService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddCompany.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CompaniesDragAndDrop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompaniesDragAndDrop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CompaniesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompaniesList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/EditCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditCompany.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShowMore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowMore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GoogleLoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GoogleLoginComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NotFound.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NotFound.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/companies/companiesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/companies/companiesReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/company/companyReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/company/companyReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/user/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/userReducer.js" afterDir="false" />
@@ -96,7 +100,8 @@
       <workItem from="1681811290306" duration="19547000" />
       <workItem from="1681831759465" duration="5715000" />
       <workItem from="1681894409726" duration="690000" />
-      <workItem from="1681913946535" duration="25770000" />
+      <workItem from="1681913946535" duration="26383000" />
+      <workItem from="1682322415795" duration="6466000" />
     </task>
     <task id="LOCAL-00001" summary="Bug fixes for table data, fixes for adding,deleting and changing of company data. New version of drag and drop implemented">
       <created>1681995962473</created>
@@ -105,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681995962473</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Drag and drop fully implemented, styling fixed, env file created">
+      <created>1682010502229</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682010502229</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +138,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Bug fixes for table data, fixes for adding,deleting and changing of company data. New version of drag and drop implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes for table data, fixes for adding,deleting and changing of company data. New version of drag and drop implemented" />
+    <MESSAGE value="Drag and drop fully implemented, styling fixed, env file created" />
+    <MESSAGE value="Project folder logic restructured, added api/ folder for services and thunk actions, features/ folder contains only reducer functions. Bug fixing and UI style fixing done." />
+    <option name="LAST_COMMIT_MESSAGE" value="Project folder logic restructured, added api/ folder for services and thunk actions, features/ folder contains only reducer functions. Bug fixing and UI style fixing done." />
   </component>
   <component name="WindowStateProjectService">
     <state x="638" y="301" key="#ESLint" timestamp="1681722525822">
@@ -141,22 +155,26 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681895103315" />
-    <state width="1515" height="180" key="GridCell.Tab.0.bottom" timestamp="1682009875810">
+    <state width="1515" height="180" key="GridCell.Tab.0.bottom" timestamp="1682329094034">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="180" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009875810" />
-    <state width="1515" height="180" key="GridCell.Tab.0.center" timestamp="1682009875810">
+    <state width="1515" height="180" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682329094034" />
+    <state width="1515" height="180" key="GridCell.Tab.0.center" timestamp="1682329094034">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="180" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009875810" />
-    <state width="1515" height="180" key="GridCell.Tab.0.left" timestamp="1682009875810">
+    <state width="1515" height="180" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682329094034" />
+    <state width="1515" height="180" key="GridCell.Tab.0.left" timestamp="1682329094034">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="180" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009875810" />
-    <state width="1515" height="180" key="GridCell.Tab.0.right" timestamp="1682009875810">
+    <state width="1515" height="180" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682329094034" />
+    <state width="1515" height="180" key="GridCell.Tab.0.right" timestamp="1682329094034">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="180" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009875810" />
+    <state width="1515" height="180" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682329094034" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1682010508601">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682010508601" />
     <state x="93" y="93" width="1350" height="630" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1681833312839">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -165,10 +183,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="586" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681747870490" />
-    <state x="478" y="7" width="678" height="801" key="find.popup" timestamp="1682009874020">
+    <state x="478" y="7" width="678" height="801" key="find.popup" timestamp="1682325565858">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="478" y="7" width="678" height="801" key="find.popup/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682009874020" />
+    <state x="478" y="7" width="678" height="801" key="find.popup/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682325565858" />
     <state x="425" y="185" key="run.anything.popup" timestamp="1681725681495">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
