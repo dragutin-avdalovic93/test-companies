@@ -3,7 +3,7 @@ import {setUserLoggedIn, setUserLoggedOut} from "../features/user/userReducer";
 
 //thunk action
 export const authenticateUser = (tokenId, profileObj) => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         try {
             const response = await axios.get(process.env.REACT_APP_PROJECT_API_URL + '/me', {
                 headers: {

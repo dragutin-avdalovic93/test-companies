@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
 import {Typography, Button} from "@mui/material";
+import PropTypes from "prop-types";
+
+ShowMore.propTypes = {
+    text: PropTypes.string.isRequired,
+    maxLenght: PropTypes.number.isRequired,
+};
 
 export function ShowMore({text, maxLenght = 100}) {
 

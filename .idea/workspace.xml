@@ -9,15 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7987989-0664-4248-87e0-5d408d2f4738" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/companyService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/companyService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Collapse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Collapse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NotFound.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NotFound.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddCompany.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CompaniesDragAndDrop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompaniesDragAndDrop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CompaniesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompaniesList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditCompany.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GoogleLoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GoogleLoginComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShowMore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShowMore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +98,8 @@
       <workItem from="1682322415795" duration="14959000" />
       <workItem from="1683110446123" duration="1352000" />
       <workItem from="1683111828228" duration="925000" />
-      <workItem from="1683112774276" duration="661000" />
+      <workItem from="1683112774276" duration="871000" />
+      <workItem from="1683113668932" duration="840000" />
     </task>
     <task id="LOCAL-00001" summary="Bug fixes for table data, fixes for adding,deleting and changing of company data. New version of drag and drop implemented">
       <created>1681995962473</created>
@@ -129,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682331338488</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixing of npm install errors">
+      <created>1683113479133</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683113479133</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +160,8 @@
     <MESSAGE value="Drag and drop fully implemented, styling fixed, env file created" />
     <MESSAGE value="Project folder logic restructured, added api/ folder for services and thunk actions, features/ folder contains only reducer functions. Bug fixing and UI style fixing done." />
     <MESSAGE value="UI fixed, pagination implemented, final UI fixes of application." />
-    <option name="LAST_COMMIT_MESSAGE" value="UI fixed, pagination implemented, final UI fixes of application." />
+    <MESSAGE value="Fixing of npm install errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing of npm install errors" />
   </component>
   <component name="WindowStateProjectService">
     <state x="638" y="276" width="784" height="524" key="#ESLint" timestamp="1683113441747">
@@ -169,34 +177,35 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1681895103315" />
-    <state width="757" height="338" key="GridCell.Tab.0.bottom" timestamp="1683113422339">
+    <state width="1515" height="338" key="GridCell.Tab.0.bottom" timestamp="1683114069849">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1515" height="180" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682337569424" />
-    <state width="757" height="338" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1683113422339" />
-    <state width="757" height="338" key="GridCell.Tab.0.center" timestamp="1683113422339">
+    <state width="1515" height="338" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1683114069849" />
+    <state width="1515" height="338" key="GridCell.Tab.0.center" timestamp="1683114069849">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1515" height="180" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682337569424" />
-    <state width="757" height="338" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1683113422339" />
-    <state width="757" height="338" key="GridCell.Tab.0.left" timestamp="1683113422339">
+    <state width="1515" height="338" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1683114069849" />
+    <state width="1515" height="338" key="GridCell.Tab.0.left" timestamp="1683114069840">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1515" height="180" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682337569424" />
-    <state width="757" height="338" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1683113422339" />
-    <state width="757" height="338" key="GridCell.Tab.0.right" timestamp="1683113422339">
+    <state width="1515" height="338" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1683114069840" />
+    <state width="1515" height="338" key="GridCell.Tab.0.right" timestamp="1683114069849">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1515" height="180" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682337569424" />
-    <state width="757" height="338" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1683113422339" />
+    <state width="1515" height="338" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1683114069849" />
     <state x="277" y="53" key="SettingsEditor" timestamp="1683111994326">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="277" y="53" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1683111994326" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1682331342702">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1683113481799">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1682331342702" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1683113481799" />
     <state x="93" y="93" width="1350" height="630" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1681833312839">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

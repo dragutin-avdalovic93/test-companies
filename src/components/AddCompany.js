@@ -12,7 +12,7 @@ import store from "../app/store";
 import {Alert} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         "& .MuiTextField-root": {
             width: "200px",

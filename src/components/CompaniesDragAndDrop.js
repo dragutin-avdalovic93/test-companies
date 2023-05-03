@@ -76,7 +76,7 @@ const CompaniesPage = () => {
                 right: [],
             });
         });
-    }, [dispatch]);
+    }, [dispatch, companies, companiesServer]);
 
     const handleDragStart = (event, company) => {
         event.dataTransfer.setData("text/plain", company.companyId);

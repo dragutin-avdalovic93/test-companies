@@ -15,7 +15,7 @@ import store from "../app/store";
 import {useNavigate} from "react-router-dom";
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         "& .MuiTextField-root": {
             width: "20ch",
@@ -38,7 +38,6 @@ function EditCompanyForm() {
 
     const [alertOpen, setAlertOpen] = useState(false);
     const navigate = useNavigate();
-    let editNameText = '';
 
     const handleCloseAlert = () => {
         setAlertOpen(false);
@@ -59,9 +58,8 @@ function EditCompanyForm() {
             response => response.json()
         ).then(data => {
             setEditName(data.companyName);
-            editNameText = data.companyName;
         });
-    }, []);
+    });
 
     const dispatch = useDispatch();
     const classes = useStyles();

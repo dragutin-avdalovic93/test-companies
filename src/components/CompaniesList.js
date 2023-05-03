@@ -71,7 +71,7 @@ const CompaniesList = () => {
         if (newPage <= 0) {
             newPage = 0;
         }
-        setPage(page => newPage);
+        setPage(newPage);
         dispatch(fetchCompanies(searchTerm, newPage + 1, rowsPerPage));
     }
 
@@ -79,9 +79,8 @@ const CompaniesList = () => {
     const handleRowsPerPageChange = (event) => {
         const newRowsPerPage = parseInt(event.target.value);
         //const newPageCount = Math.floor(companiesData.itemCount / newRowsPerPage);
-        const newPage = 1;
-        setRowsPerPage(rowsPerPage => newRowsPerPage);
-        setPage(page => 0);
+        setRowsPerPage(newRowsPerPage);
+        setPage(0);
         dispatch(fetchCompanies(searchTerm, 1, newRowsPerPage));
     }
 
@@ -104,7 +103,7 @@ const CompaniesList = () => {
     useEffect(() => {
         dispatch(fetchCompanies(searchTerm, page, rowsPerPage));
         setPage(0);
-    }, []);
+    }, [dispatch, page, rowsPerPage, searchTerm]);
 
     return (
         <>
