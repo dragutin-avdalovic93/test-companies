@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Button, Collapse, Typography, Box} from "@mui/material";
 import {makeStyles} from "@mui/styles";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
     root: {
@@ -73,5 +74,11 @@ export function ShowMoreCollapse({text, maxLength = 100}) {
         </Box>
     );
 }
+
+ShowMoreCollapse.propTypes = {
+    text: PropTypes.string.isRequired,
+    maxLength: PropTypes.number.isRequired
+};
+
 
 export default ShowMoreCollapse;
